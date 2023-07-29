@@ -4,7 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon src/index.ts"
+    "start": "nodemon src/index.ts",
+    "mkCommand": "node scripts/makeCommand.js",
+    "mkEvent": "node scripts/makeEvent.js"
   },
   "keywords": [],
   "author": "",
