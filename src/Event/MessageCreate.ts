@@ -1,6 +1,6 @@
 import { Events, Message } from "discord.js"
-import Client from "../Entity/Client"
-import Event from "../Entity/Event"
+import CommandError from "../Error/CommandError";
+import { Client, Event } from "../Entity";
 
 export default new Event(
   Events.MessageCreate,
@@ -17,9 +17,9 @@ export default new Event(
       
       try {
         command!.action(client, message, args);
-      } catch (error) {
-        console.error(error);
-        message.reply('Ocorreu um erro ao executar esse comando!');
+      } catch (error: any) {
+        message.reply('Não posso fazer isso agora!');
+        CommandError.register(error?.message, commandName);
       }
     };
   }

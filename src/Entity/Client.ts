@@ -7,7 +7,6 @@ import {
 	Collection,
 	GatewayIntentBits,
 	Client as DiscordClient,
-	Events,
 } from "discord.js";
 import Event from './Event';
 
