@@ -2,13 +2,13 @@ import 'dotenv/config';
 import fs from 'fs';
 import path from 'path';
 import Command from './Command';
+import Event from './Event';
 import {
 	Partials,
 	Collection,
 	GatewayIntentBits,
 	Client as DiscordClient,
 } from "discord.js";
-import Event from './Event';
 
 export default class Client extends DiscordClient {
   public commands: Collection<string, Command> = new Collection();
@@ -43,7 +43,7 @@ export default class Client extends DiscordClient {
 				this.commands.set(command.name, command);
 			}));
 
-		console.log(`Carreguei ${this.commands.size} comandos!`);
+		console.log(`${this.commands.size} commands loaded!`);
 	}
 
 	private async registerEvents() {
@@ -59,6 +59,6 @@ export default class Client extends DiscordClient {
 				this.on(event.name, event.run.bind(null, this) as any);
 			}));
 
-		console.log(`Carreguei ${this.eventNames().length - 1} eventos!`);
+		console.log(`${this.eventNames().length - 1} events loaded!`);
 	}
 }

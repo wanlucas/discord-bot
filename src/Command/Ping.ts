@@ -2,8 +2,11 @@ import Command from "../Entity/Command";
 
 export default new Command(
   "ping",
-  (_client, message) => {
-    throw new Error("Erro de teste");
-    message.reply("pong!");
+  (client, message) => {
+    message.reply(
+      `🏓 Pong! Messagem: *${
+        Date.now() - message.createdTimestamp
+      }ms* | WebSocket: *${client.ws.ping}ms*`
+    );
   }
 );
