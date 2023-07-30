@@ -10,13 +10,14 @@ if (fs.existsSync(commandsPath)) {
 }
 
 let body = `
-import { Client } from "discord.js";
-import Command from "../Entity/Command";
+import { Message } from "discord.js";
+import { Command, Client } from "../Entity";
 
-export default new Command(
-  "${commandName}",
-  (client: Client) => {}
-);`;
+export default new Command({
+  name: '${commandName}',
+  aliases: [],
+  action: (client: Client, message: Message) => {}
+});`;
 
 fs.writeFileSync(commandsPath, body, 'utf8')
 

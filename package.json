@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "start": "nodemon src/index.ts",
-    "mkCommand": "node scripts/makeCommand.js",
-    "mkEvent": "node scripts/makeEvent.js"
+    "mkcommand": "node scripts/makeCommand.js",
+    "mkevent": "node scripts/makeEvent.js"
   },
   "keywords": [],
   "author": "",

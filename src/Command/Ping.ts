@@ -1,9 +1,10 @@
-import Command from "../Entity/Command";
+import { Message } from "discord.js";
+import { Client, Command } from "../Entity";
 
 export default new Command({
   name: "ping",
   aliases: ["pong"],
-  action: (client, message) => {
+  action: (client: Client, message: Message) => {
     message.reply(
       `🍆 Pong! Messagem: *${
         Date.now() - message.createdTimestamp

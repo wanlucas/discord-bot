@@ -10,8 +10,8 @@ if (fs.existsSync(eventsPath)) {
 }
 
 let body = `
-import { Client, Events } from "discord.js";
-import Event from "../Entity/Event";
+import { Events } from "discord.js";
+import { Event, Client } from "../Entity";
 
 export default new Event(
   Events,
