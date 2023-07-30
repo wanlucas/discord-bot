@@ -40,8 +40,8 @@ export default class Client extends DiscordClient {
 			fs.readdirSync(commandsPath)
 		  .filter((file) => file.endsWith(".ts"))
 		  .map(async (file) => {
-				const { default: { name, action } } = await import(path.join(commandsPath, file));
-				const command = new Command(name, action);
+				const { default: payload } = await import(path.join(commandsPath, file));
+				const command = new Command(payload);
 
 				this.commands.set(command.name, command);
 			}));
@@ -62,6 +62,7 @@ export default class Client extends DiscordClient {
 				this.on(event.name, event.run.bind(null, this) as any);
 			}));
 
+		console.log(this.eventNames());
 		console.log(`${this.eventNames().length - 1} events loaded!`);
 	}
 }

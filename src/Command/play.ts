@@ -3,9 +3,10 @@ import { Message } from "discord.js";
 import { Command, Client } from "../Entity";
 import { QueryType } from "discord-player";
 
-export default new Command(
-  "play",
-  async (client: Client, message: Message, args: string[] = []) => {
+export default new Command({
+  name: 'play',
+  aliases: ['p', 'toca', 'tocar'],
+  action: async (client: Client, message: Message, args: string[] = []) => {
     if (!message.channel) {
       return message.reply('Você não está em um canal de voz!');
     }
@@ -34,6 +35,6 @@ export default new Command(
 
     return message.react('🍆');
   }
-);
+});
 
 
