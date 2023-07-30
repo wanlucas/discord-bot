@@ -4,7 +4,7 @@ export default new Command(
   "ping",
   (client, message) => {
     message.reply(
-      `🏓 Pong! Messagem: *${
+      `🍆 Pong! Messagem: *${
         Date.now() - message.createdTimestamp
       }ms* | WebSocket: *${client.ws.ping}ms*`
     );

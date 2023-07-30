@@ -1,0 +1,17 @@
+[
+  {
+    "message": "aborted",
+    "date": "2023-07-29T21:27:49.841Z",
+    "command": "!play https://www.youtube.com/watch?v=Zgb8kpGf46M"
+  },
+  {
+    "message": "Não conseguir criar a fila!",
+    "date": "2023-07-30T01:03:37.774Z",
+    "command": "!play https://www.youtube.com/watch?v=DPIno-98Wa4&list=PLvM0K-Y-ry40a8Nry5zyrshoEyw3O9iK0"
+  },
+  {
+    "message": "Expected channel to be \"VoiceBasedChannel (type 2/13)\", received \"0\"",
+    "date": "2023-07-30T01:06:56.898Z",
+    "command": "!play https://www.youtube.com/watch?v=DPIno-98Wa4&list=PLvM0K-Y-ry40a8Nry5zyrshoEyw3O9iK0"
+  }
+]

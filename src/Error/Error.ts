@@ -20,7 +20,7 @@ export default class Error {
 
     fs.readFile(path, 'utf8', (error, previous) => {
       if (!error) {
-        fs.writeFileSync(path, JSON.stringify([...JSON.parse(previous), log], null, 2));
+        fs.writeFileSync(path, JSON.stringify([...JSON.parse(previous || '[]'), log], null, 2));
       }
     });
   }

@@ -4,7 +4,7 @@ import { Client, Event } from "../Entity";
 
 export default new Event(
   Events.MessageCreate,
-  (client: Client, message: Message) => {
+  async (client: Client, message: Message) => {
     const prefix = '!';
   
     if (!message.content.startsWith(prefix) || message.author.bot) return;
@@ -16,11 +16,12 @@ export default new Event(
       const command = client.commands.get(commandName);
       
       try {
-        command!.action(client, message, args);
+        await command!.action(client, message, args);
       } catch (error: any) {
         message.reply('Não posso fazer isso agora!');
-        CommandError.register(error?.message, commandName);
+        console.log(error);
+        console.log(CommandError.register(error?.message, message.content));
       }
-    };
+    } else message.reply('Como é, amigo?');
   }
 );

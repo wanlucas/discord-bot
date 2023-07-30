@@ -1,6 +1,7 @@
 import 'dotenv/config';
 import fs from 'fs';
 import path from 'path';
+import Player from './Player';
 import Command from './Command';
 import Event from './Event';
 import {
@@ -12,6 +13,7 @@ import {
 
 export default class Client extends DiscordClient {
   public commands: Collection<string, Command> = new Collection();
+	public player = new Player(this);
 
   constructor() {
 		super({
@@ -19,6 +21,7 @@ export default class Client extends DiscordClient {
 				GatewayIntentBits.Guilds,
 				GatewayIntentBits.GuildMessages,
 				GatewayIntentBits.MessageContent,
+				GatewayIntentBits.GuildVoiceStates,
 			],
 			partials: [Partials.Channel] 
 		});
