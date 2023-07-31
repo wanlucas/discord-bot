@@ -27,10 +27,10 @@ export default class Client extends DiscordClient {
 		});
 	}
 
-	public start() {
+	public start(token: string) {
 		this.registerCommands();
 		this.registerEvents();
-		this.login(process.env.TOKEN);
+		this.login(token);
 	}
 
 	private async registerCommands() {

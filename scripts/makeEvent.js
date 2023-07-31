@@ -14,7 +14,7 @@ import { Events } from "discord.js";
 import { Event, Client } from "../Entity";
 
 export default new Event(
-  Events,
+  Events.${eventName},
   (client: Client) => {}
 );`;
 
