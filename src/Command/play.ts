@@ -9,8 +9,8 @@ export default new Command({
     const channel = message.member?.voice.channel;
 
     if (!channel) return message.reply('Você não está em um canal de voz!');
-    if (!args.length) return message.reply('Qual Música?');
     if (!channel.joinable) return message.reply('Não posso entrar aí!');
+    if (!args.length) return message.reply('Qual Música?');
 
     const queue = client.player.nodes.create(message.guildId!, {
       metadata: {

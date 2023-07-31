@@ -3,7 +3,7 @@ import { Client, Command } from "../Entity";
 
 export default new Command({
   name: "ping",
-  aliases: ["pong"],
+  aliases: [],
   action: (client: Client, message: Message) => {
     message.reply(
       `🍆 Pong! Messagem: *${
