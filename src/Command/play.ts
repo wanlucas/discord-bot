@@ -7,6 +7,7 @@ export default new Command({
   aliases: ['p', 'toca', 'tocar'],
   action: async (client: Client, message: Message, args: string[] = []) => {
     const channel = message.member?.voice.channel;
+    const query = args.join(' ');
 
     if (!channel) return message.reply('Você não está em um canal de voz!');
     if (!channel.joinable) return message.reply('Não posso entrar aí!');
@@ -23,7 +24,7 @@ export default new Command({
     }
 
     const reply = message.reply('Análise... 🤨');
-    const { tracks, playlist } = await client.player.search(args.join(' '));
+    const { tracks, playlist } = await client.player.search(query);
 
     if (!tracks.length) return message.reply('Não encontrei essa música!');
 

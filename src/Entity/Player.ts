@@ -3,7 +3,7 @@ import { YouTubeExtractor, SpotifyExtractor } from '@discord-player/extractor';
 import Client from './Client';
 import * as embed from '../Components/embed';
 import * as button from '../Components/button';
-import { ActionRowBuilder, ButtonBuilder } from 'discord.js';
+import { ActionRowBuilder, ButtonBuilder, Message } from 'discord.js';
 
 export default class Player extends DiscordPlayer {
   constructor(client: Client) {
@@ -55,7 +55,8 @@ export default class Player extends DiscordPlayer {
     });
 
     this.events.on('audioTrackAdd', (message, track) => {
-      message.metadata.channel.send(`${track.title} foi adicionado à fila!`);
+      message.metadata.channel.send(`${track.title} foi adicionado à fila!`)
+        .then((msg: any) => setTimeout(() => msg.delete(), 5000));
     });
   }
 }
